@@ -1,0 +1,37 @@
+#carregando statics no django
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"
+    <title>Home Dental Care</title>
+</head>
+<body>
+<h1>Pagina incial</h1>
+<img src="{% static 'img/coffe.jpeg' %}"/>
+<!-- chamada de paramentros via django -->
+<h2>{{ curso }}</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Produtos</th>
+        <th>Preços</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for produto in produtos %}
+    <tr>
+        <td><a href="{%url 'produto' produto.id%}">{{produto.nome}}</a></td>
+        <td>{{produto.preco}}</td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<button onclick="test();"> click</button>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
